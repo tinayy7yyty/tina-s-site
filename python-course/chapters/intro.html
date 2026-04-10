@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第1章：Python简介 - Python基础课程</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chapter-content {
+            line-height: 1.6;
+        }
+        .chapter-content h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .chapter-content h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        .chapter-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .chapter-content ul {
+            margin-bottom: 15px;
+        }
+        .chapter-content li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+        }
+        .nav-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-button {
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .nav-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tina's Site</h1>
+        <p>个人主页 - 记录学习点滴</p>
+    </header>
+    <nav>
+        <a href="../../index.html">首页</a>
+        <a href="../index.html">Python基础课程</a>
+        <a href="intro.html">第1章：Python简介</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <div class="chapter-content">
+                <h2>第1章：Python简介</h2>
+                
+                <h3>1.1 Python的历史</h3>
+                <p>Python是由荷兰人Guido van Rossum于1989年圣诞节期间，为了打发无聊的圣诞节而编写的一个编程语言。</p>
+                <p>Python的设计哲学是：</p>
+                <ul>
+                    <li>优雅</li>
+                    <li>明确</li>
+                    <li>简单</li>
+                </ul>
+                <p>Python的版本发展：</p>
+                <ul>
+                    <li>Python 1.0 - 1994年1月</li>
+                    <li>Python 2.0 - 2000年10月</li>
+                    <li>Python 3.0 - 2008年12月</li>
+                    <li>Python 3.10 - 2021年10月</li>
+                    <li>Python 3.11 - 2022年10月</li>
+                </ul>
+                
+                <h3>1.2 Python的特点</h3>
+                <p>Python具有以下特点：</p>
+                <ul>
+                    <li><strong>简单易学</strong>：Python的语法简洁明了，代码可读性高，适合初学者学习。</li>
+                    <li><strong>解释型语言</strong>：Python代码不需要编译，可以直接运行，方便快速开发和调试。</li>
+                    <li><strong>面向对象</strong>：Python支持面向对象编程，可以创建类和对象。</li>
+                    <li><strong>丰富的库</strong>：Python拥有大量的标准库和第三方库，可以用于各种领域的开发。</li>
+                    <li><strong>跨平台</strong>：Python可以在Windows、macOS、Linux等多种操作系统上运行。</li>
+                    <li><strong>开源</strong>：Python是开源的，可以自由使用和修改。</li>
+                </ul>
+                
+                <h3>1.3 Python的应用领域</h3>
+                <p>Python的应用领域非常广泛，包括：</p>
+                <ul>
+                    <li><strong>Web开发</strong>：使用Django、Flask等框架开发网站和Web应用。</li>
+                    <li><strong>数据分析</strong>：使用NumPy、Pandas等库进行数据处理和分析。</li>
+                    <li><strong>人工智能</strong>：使用TensorFlow、PyTorch等库进行机器学习和深度学习。</li>
+                    <li><strong>自动化测试</strong>：使用Selenium等库进行自动化测试。</li>
+                    <li><strong>网络爬虫</strong>：使用Scrapy等库进行网络数据抓取。</li>
+                    <li><strong>游戏开发</strong>：使用Pygame等库开发游戏。</li>
+                    <li><strong>科学计算</strong>：使用SciPy等库进行科学计算。</li>
+                    <li><strong>系统运维</strong>：使用Python脚本进行系统管理和自动化操作。</li>
+                </ul>
+                
+                <h3>1.4 第一个Python程序</h3>
+                <p>让我们编写第一个Python程序，输出"Hello, World!"：</p>
+                <div class="code-block">print("Hello, World!")</div>
+                <p>运行这个程序，你会看到输出：</p>
+                <div class="code-block">Hello, World!</div>
+                
+                <h3>1.5 安装Python</h3>
+                <p>要开始使用Python，你需要在你的计算机上安装Python。你可以从Python官方网站（https://www.python.org/）下载最新版本的Python安装包，然后按照安装向导进行安装。</p>
+                <p>安装完成后，你可以打开命令行终端，输入以下命令来检查Python是否安装成功：</p>
+                <div class="code-block">python --version</div>
+                <p>如果安装成功，你会看到Python的版本信息。</p>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="../index.html" class="nav-button">返回课程目录</a>
+                <a href="basic-syntax.html" class="nav-button">下一章：Python基础语法</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

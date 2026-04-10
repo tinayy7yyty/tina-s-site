@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python基础课程 - Tina's Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .course-info {
+            margin-bottom: 30px;
+        }
+        .course-info h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .course-info p {
+            line-height: 1.6;
+            color: #666;
+        }
+        .chapters {
+            margin-top: 30px;
+        }
+        .chapters h3 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .chapter-list {
+            list-style: none;
+            padding: 0;
+        }
+        .chapter-list li {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .chapter-list li:hover {
+            background-color: #f9f9f9;
+        }
+        .chapter-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .chapter-list p {
+            margin: 5px 0 0 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-home:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tina's Site</h1>
+        <p>个人主页 - 记录学习点滴</p>
+    </header>
+    <nav>
+        <a href="../index.html">首页</a>
+        <a href="index.html">Python基础课程</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <div class="course-info">
+                <h2>Python基础课程</h2>
+                <p>本课程从零开始讲解Python编程语言，适合初学者。通过本课程的学习，你将掌握Python的基础语法、数据结构、函数等核心概念，为进一步学习Python应用开发打下坚实的基础。</p>
+                <p><strong>课程特点：</strong></p>
+                <ul>
+                    <li>内容循序渐进，适合零基础学习</li>
+                    <li>包含大量实例代码和练习</li>
+                    <li>注重实践，培养编程思维</li>
+                </ul>
+            </div>
+            
+            <div class="chapters">
+                <h3>课程章节</h3>
+                <ul class="chapter-list">
+                    <li>
+                        <a href="chapters/intro.html">第1章：Python简介</a>
+                        <p>了解Python的历史、特点和应用领域</p>
+                    </li>
+                    <li>
+                        <a href="chapters/basic-syntax.html">第2章：Python基础语法</a>
+                        <p>学习变量、数据类型、运算符等基础知识</p>
+                    </li>
+                    <li>
+                        <a href="chapters/control-flow.html">第3章：控制流</a>
+                        <p>掌握条件语句和循环语句的使用</p>
+                    </li>
+                    <li>
+                        <a href="chapters/data-structures.html">第4章：数据结构</a>
+                        <p>学习列表、元组、字典等常用数据结构</p>
+                    </li>
+                    <li>
+                        <a href="chapters/functions.html">第5章：函数</a>
+                        <p>了解函数的定义、调用和参数传递</p>
+                    </li>
+                    <li>
+                        <a href="chapters/modules.html">第6章：模块和包</a>
+                        <p>学习如何导入和使用Python模块</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <a href="../index.html" class="back-home">返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
