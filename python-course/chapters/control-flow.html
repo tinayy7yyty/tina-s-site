@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第3章：控制流 - 商务数据分析与应用</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2196F3;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chapter-content {
+            line-height: 1.6;
+        }
+        .chapter-content h2 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .chapter-content h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .chapter-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .chapter-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .chapter-content li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box h4 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        .nav-buttons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #1976D2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python基础课程</h1>
+            <p>商务数据分析与应用专业学习路径</p>
+        </header>
+        
+        <nav>
+            <a href="../index.html">首页</a>
+            <a href="intro.html">课程介绍</a>
+            <a href="basic-syntax.html">基础语法</a>
+            <a href="control-flow.html">控制流</a>
+            <a href="data-structures.html">数据结构</a>
+            <a href="functions.html">函数</a>
+            <a href="data-analysis.html">数据分析</a>
+        </nav>
+        
+        <div class="content">
+            <div class="chapter-content">
+                <h2>第3章：控制流</h2>
+                
+                <h3>3.1 条件语句</h3>
+                <p>条件语句用于根据不同的条件执行不同的代码块。在Python中，条件语句主要使用 <code>if</code>、<code>elif</code> 和 <code>else</code> 关键字。</p>
+                
+                <h4>3.1.1 if 语句</h4>
+                <div class="code-block"># if 语句
+age = 18
+if age >= 18:
+    print("你已经成年了")</div>
+                
+                <h4>3.1.2 if-else 语句</h4>
+                <div class="code-block"># if-else 语句
+age = 15
+if age >= 18:
+    print("你已经成年了")
+else:
+    print("你还未成年")</div>
+                
+                <h4>3.1.3 if-elif-else 语句</h4>
+                <div class="code-block"># if-elif-else 语句
+score = 85
+if score >= 90:
+    print("优秀")
+elif score >= 80:
+    print("良好")
+elif score >= 60:
+    print("及格")
+else:
+    print("不及格")</div>
+                
+                <div class="note-box">
+                    <h4>注意事项</h4>
+                    <ul>
+                        <li>Python使用缩进（通常是4个空格）来表示代码块</li>
+                        <li>条件语句中的条件表达式会被评估为布尔值（True或False）</li>
+                        <li>可以使用逻辑运算符（and、or、not）组合多个条件</li>
+                    </ul>
+                </div>
+                
+                <h3>3.2 循环语句</h3>
+                <p>循环语句用于重复执行一段代码。在Python中，主要有两种循环：<code>for</code> 循环和 <code>while</code> 循环。</p>
+                
+                <h4>3.2.1 for 循环</h4>
+                <p><code>for</code> 循环用于遍历序列（如列表、元组、字符串等）中的每个元素：</p>
+                <div class="code-block"># for 循环遍历列表
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# for 循环遍历字符串
+text = "Python"
+for char in text:
+    print(char)
+
+# 使用 range() 函数
+for i in range(5):
+    print(i)
+
+# range(start, end, step)
+for i in range(1, 10, 2):
+    print(i)</div>
+                
+                <h4>3.2.2 while 循环</h4>
+                <p><code>while</code> 循环会一直执行，直到条件为假：</p>
+                <div class="code-block"># while 循环
+count = 0
+while count < 5:
+    print(count)
+    count += 1</div>
+                
+                <h3>3.3 循环控制语句</h3>
+                <p>Python提供了两个循环控制语句：<code>break</code> 和 <code>continue</code>。</p>
+                
+                <h4>3.3.1 break 语句</h4>
+                <p><code>break</code> 语句用于提前终止循环：</p>
+                <div class="code-block"># break 语句
+for i in range(10):
+    if i == 5:
+        break
+    print(i)</div>
+                
+                <h4>3.3.2 continue 语句</h4>
+                <p><code>continue</code> 语句用于跳过当前循环的剩余部分，直接开始下一次循环：</p>
+                <div class="code-block"># continue 语句
+for i in range(10):
+    if i % 2 == 0:
+        continue
+    print(i)</div>
+                
+                <h3>3.4 嵌套循环</h3>
+                <p>循环可以嵌套使用，即在一个循环内部再使用另一个循环：</p>
+                <div class="code-block"># 嵌套循环
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"i={i}, j={j}")</div>
+                
+                <div class="note-box">
+                    <h4>编程小贴士</h4>
+                    <p>在使用循环时，要注意避免无限循环。确保循环条件最终会变为假，或者在循环内部使用 <code>break</code> 语句来终止循环。</p>
+                </div>
+                
+                <h3>3.5 商务数据分析中的应用示例</h3>
+                <p>下面是一个使用控制流的实际应用示例，用于分析销售数据：</p>
+                <div class="code-block"># 销售数据分析
+sales_data = [
+    {"product": "A", "sales": 1200, "target": 1000},
+    {"product": "B", "sales": 800, "target": 1000},
+    {"product": "C", "sales": 1500, "target": 1200},
+    {"product": "D", "sales": 900, "target": 1000}
+]
+
+for item in sales_data:
+    product = item["product"]
+    sales = item["sales"]
+    target = item["target"]
+    
+    if sales >= target:
+        performance = "达标"
+        percentage = (sales / target - 1) * 100
+        print(f"产品 {product}: 销售额 {sales}, 目标 {target}, 表现: {performance}, 超出目标 {percentage:.1f}%")
+    else:
+        performance = "未达标"
+        percentage = (1 - sales / target) * 100
+        print(f"产品 {product}: 销售额 {sales}, 目标 {target}, 表现: {performance}, 低于目标 {percentage:.1f}%")</div>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="basic-syntax.html" class="nav-button">上一章：Python基础语法</a>
+                <a href="data-structures.html" class="nav-button">下一章：数据结构</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
+        </footer>
+    </div>
+</body>
+</html>

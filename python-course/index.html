@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python基础课程 - Tina's Site</title>
+    <title>Python基础课程 - 商务数据分析与应用</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,44 +14,113 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0;
         }
         header {
-            background-color: #333;
+            background-color: #2196F3;
             color: white;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
         }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+        }
         nav {
-            background-color: #444;
-            padding: 10px 0;
+            background-color: #333;
+            padding: 15px 0;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2196F3;
         }
         .content {
             background-color: white;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 30px;
+            margin: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .course-info {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         .course-info h2 {
             margin-top: 0;
             color: #333;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
         }
         .course-info p {
             line-height: 1.6;
             color: #666;
+            margin-bottom: 15px;
+        }
+        .course-features {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .course-features h3 {
+            color: #2196F3;
+            margin-top: 0;
+        }
+        .course-features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-features li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .course-features li:before {
+            content: "✓";
+            color: #2196F3;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .learning-path {
+            margin-top: 40px;
+        }
+        .learning-path h3 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .path-stage {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .path-stage h4 {
+            color: #2196F3;
+            margin-top: 0;
+        }
+        .path-stage p {
+            margin-bottom: 10px;
+        }
+        .path-stage ul {
+            margin-top: 10px;
         }
         .chapters {
-            margin-top: 30px;
+            margin-top: 40px;
         }
         .chapters h3 {
             color: #333;
@@ -63,59 +132,142 @@
             padding: 0;
         }
         .chapter-list li {
-            margin: 10px 0;
-            padding: 15px;
+            margin: 15px 0;
+            padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
         .chapter-list li:hover {
             background-color: #f9f9f9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
         }
         .chapter-list a {
             text-decoration: none;
             color: #333;
             font-weight: bold;
+            font-size: 1.1em;
         }
         .chapter-list p {
-            margin: 5px 0 0 0;
+            margin: 10px 0 0 0;
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
-        .back-home {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 16px;
-            background-color: #333;
+        .nav-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #2196F3;
             color: white;
             text-decoration: none;
             border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-left: 10px;
         }
-        .back-home:hover {
-            background-color: #555;
+        .nav-button:hover {
+            background-color: #1976D2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Tina's Site</h1>
-        <p>个人主页 - 记录学习点滴</p>
-    </header>
-    <nav>
-        <a href="../index.html">首页</a>
-        <a href="index.html">Python基础课程</a>
-    </nav>
     <div class="container">
+        <header>
+            <h1>Python基础课程</h1>
+            <p>商务数据分析与应用专业学习路径</p>
+        </header>
+        
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="chapters/intro.html">课程介绍</a>
+            <a href="chapters/basic-syntax.html">基础语法</a>
+            <a href="chapters/control-flow.html">控制流</a>
+            <a href="chapters/data-structures.html">数据结构</a>
+            <a href="chapters/functions.html">函数</a>
+            <a href="chapters/data-analysis.html">数据分析</a>
+        </nav>
+        
         <div class="content">
             <div class="course-info">
-                <h2>Python基础课程</h2>
-                <p>本课程从零开始讲解Python编程语言，适合初学者。通过本课程的学习，你将掌握Python的基础语法、数据结构、函数等核心概念，为进一步学习Python应用开发打下坚实的基础。</p>
-                <p><strong>课程特点：</strong></p>
-                <ul>
-                    <li>内容循序渐进，适合零基础学习</li>
-                    <li>包含大量实例代码和练习</li>
-                    <li>注重实践，培养编程思维</li>
-                </ul>
+                <h2>课程简介</h2>
+                <p>同学你好，作为商务数据分析与应用专业的大一学生，在AI时代提出学习Python的问题，非常有前瞻性。综合行业趋势和专业需求来看，答案是肯定的：非常有必要学习Python。它不仅是当前数据分析领域的"基础设施"，更是你未来职业发展的核心技能和竞争力所在。</p>
+            </div>
+            
+            <div class="course-features">
+                <h3>一、为什么有必要学：Python在商务数据分析中的核心价值</h3>
+                
+                <div class="path-stage">
+                    <h4>行业需求与就业的"硬通货"</h4>
+                    <p>数据分析在电商、金融、零售等行业的渗透率持续上升，企业对于数据驱动决策的需求显著增长。在招聘市场上，数据分析、数据开发等岗位对Python技能的要求占比超过80%。掌握Python，意味着你直接匹配了市场主流岗位的技术要求，如数据分析师、商业智能专员等。它不仅能帮助你在初级岗位立足，更为你打开了通往数据科学家、机器学习工程师等高级职位的大门。</p>
+                </div>
+                
+                <div class="path-stage">
+                    <h4>技术生态无可替代，是AI时代的"连接器"</h4>
+                    <p>Python拥有极其丰富和成熟的数据分析技术生态系统，涵盖了从数据采集、清洗、分析到可视化的全流程。核心库如Pandas（数据处理）、NumPy（数值计算）、Matplotlib/Seaborn（可视化）以及Scikit-learn（机器学习）已成为行业标准。更重要的是，在AI时代，Python是与人工智能结合最紧密的语言，主流的深度学习框架（如TensorFlow、PyTorch）和机器学习库都基于Python。虽然出现了许多低代码/无代码的AI辅助分析工具（如一些BI平台），但Python作为底层进行复杂分析、定制开发和模型集成的"连接器"角色，依然不可替代。</p>
+                </div>
+                
+                <div class="path-stage">
+                    <h4>解决复杂业务痛点的"利器"</h4>
+                    <p>你的专业是"商务数据分析与应用"，核心在于用数据解决商业问题。Excel和SQL能处理基础问题，但在面对海量数据、复杂分析和自动化需求时，Python更具优势。例如，它可以：</p>
+                    <ul>
+                        <li>驱动销售增长：通过构建销售漏斗模型和客户画像，精准定位转化流失环节，优化营销策略。</li>
+                        <li>优化供应链：利用时间序列预测模型，科学管理库存，避免积压和断货；通过路径优化算法节约物流成本。</li>
+                        <li>提升客户体验：分析用户行为数据，进行情感分析，数据驱动产品迭代和创新。</li>
+                    </ul>
+                    <p>这些能力让你从制作基础报表的业务人员，升级为能通过建模挖掘深层商业价值、解决核心痛点的分析人才。</p>
+                </div>
+            </div>
+            
+            <div class="learning-path">
+                <h3>二、给大一新生的学习路径与心态建议</h3>
+                
+                <div class="path-stage">
+                    <h4>分阶段学习，降低入门门槛</h4>
+                    <p>商务数据分析的Python学习入门难度相对较低。建议分为三个阶段：</p>
+                    <ul>
+                        <li><strong>启蒙阶段（1-2个月）</strong>：首要目标是建立信心。专注于Python基础语法、数据类型（列表、字典等）、循环和函数。强烈推荐使用Jupyter Notebook这样的交互式环境，可以边写边看结果，学习体验非常好。这个阶段不用追求精通所有语法，能看懂和编写简单脚本即可。</li>
+                        <li><strong>实践阶段（2-3个月）</strong>：核心是"学以致用"。开始学习数据分析的"王牌"库——Pandas。用它来读取、清洗、探索你专业课程中或自己感兴趣的商业数据集（如销售数据、用户数据）。同时，开始用Matplotlib或Seaborn将分析结果可视化。这个阶段，成就感会很强。</li>
+                        <li><strong>进阶阶段</strong>：在掌握数据处理和可视化后，可以涉足简单的统计分析、机器学习入门（如使用Scikit-learn做回归分析、聚类），并学习如何用Python脚本实现自动化报表，解放重复劳动。</li>
+                    </ul>
+                </div>
+                
+                <div class="path-stage">
+                    <h4>运用"聪明"的学习方法，站在巨人肩膀上</h4>
+                    <ul>
+                        <li><strong>不要死磕</strong>：你不需要从零开始编写所有复杂的脚本。数据分析有大量成熟的代码和案例。最好的学习方式是在参考现有脚本的基础上，修修改改以匹配自己的实际需求。多去GitHub、Kaggle等平台阅读和复现别人的项目代码。</li>
+                        <li><strong>善用AI工具辅助</strong>：你正处在AI时代，完全可以利用像DeepSeek这类AI编程助手来辅助学习。当你卡壳时，可以让它帮你解释代码、调试错误、甚至生成示例，这能极大提高学习效率，减少挫败感。</li>
+                        <li><strong>与工具协同，明确Python的定位</strong>：在你的技能栈中，Python不是孤立的。它需要与SQL（数据库查询）、Excel（快速轻量分析）以及BI工具（如FineBI、Tableau，用于敏捷可视化和报告）协同工作。未来企业中，你可能用Python进行复杂的数据处理和建模，然后将结果导入BI工具生成美观的看板给业务部门。理解这个协作流程，会让你学习目标更清晰。</li>
+                    </ul>
+                </div>
+                
+                <div class="path-stage">
+                    <h4>积累实战经验，弥补学历可能的竞争短板</h4>
+                    <p>作为专科学生，在求职时可能会面临竞争，但扎实的技能和项目经验是最有力的筹码。在校期间，你应该：</p>
+                    <ul>
+                        <li>积极参与实习和竞赛：例如参加Kaggle的初级赛事，或企业数据分析实习，将所学应用于真实场景。</li>
+                        <li>考取权威证书：如CDA数据分析师认证，可以系统化提升能力，并在求职时证明你的专业素养。</li>
+                        <li>打造个人作品集：用Python完成几个完整的分析项目（如对某电商销售数据的全流程分析），并将过程、代码和结论整理成报告，这比空谈"会Python"有说服力得多。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="course-features">
+                <h3>总结</h3>
+                <p>在AI时代，Python对于商务数据分析专业学生而言，不是"可选项"，而是"必选项"。它代表了处理复杂问题、实现自动化、连接AI能力的进阶技能。虽然学习过程会有挑战，但通过分阶段规划、采用"借鉴+实践"的聪明学法，并积极利用AI工具辅助，你完全可以掌握它。</p>
+                <p>你的专业是"应用"导向的，学习Python的最终目的，是成为 "数据分析+商业知识" 的复合型人才。从现在开始，一步一个脚印，你将在数字化转型的浪潮中，占据非常有利的位置。</p>
             </div>
             
             <div class="chapters">
@@ -123,7 +275,7 @@
                 <ul class="chapter-list">
                     <li>
                         <a href="chapters/intro.html">第1章：Python简介</a>
-                        <p>了解Python的历史、特点和应用领域</p>
+                        <p>了解Python在商务数据分析中的应用价值和安装环境</p>
                     </li>
                     <li>
                         <a href="chapters/basic-syntax.html">第2章：Python基础语法</a>
@@ -142,14 +294,20 @@
                         <p>了解函数的定义、调用和参数传递</p>
                     </li>
                     <li>
-                        <a href="chapters/modules.html">第6章：模块和包</a>
-                        <p>学习如何导入和使用Python模块</p>
+                        <a href="chapters/data-analysis.html">第6章：数据分析基础</a>
+                        <p>学习Pandas数据处理和Matplotlib数据可视化</p>
                     </li>
                 </ul>
             </div>
             
-            <a href="../index.html" class="back-home">返回首页</a>
+            <div class="nav-buttons">
+                <a href="chapters/intro.html" class="nav-button">开始学习</a>
+            </div>
         </div>
+        
+        <footer>
+            <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
+        </footer>
     </div>
 </body>
 </html>

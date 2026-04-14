@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第1章：Python简介 - Python基础课程</title>
+    <title>第1章：Python简介 - 商务数据分析与应用</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,28 +14,43 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0;
         }
         header {
-            background-color: #333;
+            background-color: #2196F3;
             color: white;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
         }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+        }
         nav {
-            background-color: #444;
-            padding: 10px 0;
+            background-color: #333;
+            padding: 15px 0;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2196F3;
         }
         .content {
             background-color: white;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 30px;
+            margin: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
@@ -45,10 +60,13 @@
         .chapter-content h2 {
             color: #333;
             margin-top: 0;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
         }
         .chapter-content h3 {
             color: #555;
-            margin-top: 20px;
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
         .chapter-content p {
             margin-bottom: 15px;
@@ -56,9 +74,10 @@
         }
         .chapter-content ul {
             margin-bottom: 15px;
+            padding-left: 20px;
         }
         .chapter-content li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: #666;
         }
         .code-block {
@@ -68,78 +87,109 @@
             margin: 15px 0;
             font-family: 'Courier New', Courier, monospace;
             white-space: pre-wrap;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box h4 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        .highlight-box {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+        .highlight-box h4 {
+            margin-top: 0;
+            color: #ff9800;
         }
         .nav-buttons {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
             justify-content: space-between;
         }
         .nav-button {
-            padding: 8px 16px;
-            background-color: #333;
+            padding: 10px 20px;
+            background-color: #2196F3;
             color: white;
             text-decoration: none;
             border-radius: 4px;
+            transition: background-color 0.3s;
         }
         .nav-button:hover {
-            background-color: #555;
+            background-color: #1976D2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Tina's Site</h1>
-        <p>个人主页 - 记录学习点滴</p>
-    </header>
-    <nav>
-        <a href="../../index.html">首页</a>
-        <a href="../index.html">Python基础课程</a>
-        <a href="intro.html">第1章：Python简介</a>
-    </nav>
     <div class="container">
+        <header>
+            <h1>Python基础课程</h1>
+            <p>商务数据分析与应用专业学习路径</p>
+        </header>
+        
+        <nav>
+            <a href="../index.html">首页</a>
+            <a href="intro.html">课程介绍</a>
+            <a href="basic-syntax.html">基础语法</a>
+            <a href="control-flow.html">控制流</a>
+            <a href="data-structures.html">数据结构</a>
+            <a href="functions.html">函数</a>
+            <a href="data-analysis.html">数据分析</a>
+        </nav>
+        
         <div class="content">
             <div class="chapter-content">
                 <h2>第1章：Python简介</h2>
                 
-                <h3>1.1 Python的历史</h3>
-                <p>Python是由荷兰人Guido van Rossum于1989年圣诞节期间，为了打发无聊的圣诞节而编写的一个编程语言。</p>
-                <p>Python的设计哲学是：</p>
-                <ul>
-                    <li>优雅</li>
-                    <li>明确</li>
-                    <li>简单</li>
-                </ul>
-                <p>Python的版本发展：</p>
-                <ul>
-                    <li>Python 1.0 - 1994年1月</li>
-                    <li>Python 2.0 - 2000年10月</li>
-                    <li>Python 3.0 - 2008年12月</li>
-                    <li>Python 3.10 - 2021年10月</li>
-                    <li>Python 3.11 - 2022年10月</li>
-                </ul>
+                <h3>1.1 Python在商务数据分析中的价值</h3>
+                <p>作为商务数据分析与应用专业的学生，在AI时代掌握Python技能至关重要。Python不仅是当前数据分析领域的"基础设施"，更是你未来职业发展的核心技能和竞争力所在。</p>
+                
+                <div class="highlight-box">
+                    <h4>为什么学习Python？</h4>
+                    <ul>
+                        <li><strong>行业需求与就业的"硬通货"</strong>：数据分析岗位对Python技能要求占比超过80%</li>
+                        <li><strong>技术生态无可替代</strong>：Pandas、NumPy、Matplotlib等成为行业标准</li>
+                        <li><strong>AI时代的"连接器"</strong>：与TensorFlow、PyTorch等深度学习框架紧密结合</li>
+                        <li><strong>解决复杂业务痛点的"利器"</strong>：销售增长、供应链优化、客户体验提升</li>
+                    </ul>
+                </div>
                 
                 <h3>1.2 Python的特点</h3>
-                <p>Python具有以下特点：</p>
+                <p>Python具有以下特点，使其成为商务数据分析的理想选择：</p>
                 <ul>
-                    <li><strong>简单易学</strong>：Python的语法简洁明了，代码可读性高，适合初学者学习。</li>
-                    <li><strong>解释型语言</strong>：Python代码不需要编译，可以直接运行，方便快速开发和调试。</li>
-                    <li><strong>面向对象</strong>：Python支持面向对象编程，可以创建类和对象。</li>
-                    <li><strong>丰富的库</strong>：Python拥有大量的标准库和第三方库，可以用于各种领域的开发。</li>
-                    <li><strong>跨平台</strong>：Python可以在Windows、macOS、Linux等多种操作系统上运行。</li>
-                    <li><strong>开源</strong>：Python是开源的，可以自由使用和修改。</li>
+                    <li><strong>简单易学</strong>：语法简洁明了，代码可读性高，适合初学者学习</li>
+                    <li><strong>解释型语言</strong>：不需要编译，可以直接运行，方便快速开发和调试</li>
+                    <li><strong>丰富的库</strong>：拥有大量专门用于数据分析的库，如Pandas、NumPy、Matplotlib等</li>
+                    <li><strong>跨平台</strong>：可以在Windows、macOS、Linux等多种操作系统上运行</li>
+                    <li><strong>开源</strong>：免费使用，拥有庞大的社区支持</li>
                 </ul>
                 
-                <h3>1.3 Python的应用领域</h3>
-                <p>Python的应用领域非常广泛，包括：</p>
+                <h3>1.3 Python在商务数据分析中的应用场景</h3>
+                <p>Python可以帮助你解决各种商业问题：</p>
                 <ul>
-                    <li><strong>Web开发</strong>：使用Django、Flask等框架开发网站和Web应用。</li>
-                    <li><strong>数据分析</strong>：使用NumPy、Pandas等库进行数据处理和分析。</li>
-                    <li><strong>人工智能</strong>：使用TensorFlow、PyTorch等库进行机器学习和深度学习。</li>
-                    <li><strong>自动化测试</strong>：使用Selenium等库进行自动化测试。</li>
-                    <li><strong>网络爬虫</strong>：使用Scrapy等库进行网络数据抓取。</li>
-                    <li><strong>游戏开发</strong>：使用Pygame等库开发游戏。</li>
-                    <li><strong>科学计算</strong>：使用SciPy等库进行科学计算。</li>
-                    <li><strong>系统运维</strong>：使用Python脚本进行系统管理和自动化操作。</li>
+                    <li><strong>驱动销售增长</strong>：通过构建销售漏斗模型和客户画像，精准定位转化流失环节，优化营销策略</li>
+                    <li><strong>优化供应链</strong>：利用时间序列预测模型，科学管理库存，避免积压和断货；通过路径优化算法节约物流成本</li>
+                    <li><strong>提升客户体验</strong>：分析用户行为数据，进行情感分析，数据驱动产品迭代和创新</li>
+                    <li><strong>自动化报表</strong>：编写脚本自动生成日常报表，解放重复劳动，提高工作效率</li>
                 </ul>
                 
                 <h3>1.4 第一个Python程序</h3>
@@ -148,18 +198,44 @@
                 <p>运行这个程序，你会看到输出：</p>
                 <div class="code-block">Hello, World!</div>
                 
-                <h3>1.5 安装Python</h3>
-                <p>要开始使用Python，你需要在你的计算机上安装Python。你可以从Python官方网站（https://www.python.org/）下载最新版本的Python安装包，然后按照安装向导进行安装。</p>
-                <p>安装完成后，你可以打开命令行终端，输入以下命令来检查Python是否安装成功：</p>
+                <div class="note-box">
+                    <h4>编程小贴士</h4>
+                    <p>"Hello, World!"是编程世界的传统第一个程序，它简单直观，能够帮助你验证开发环境是否配置正确。</p>
+                </div>
+                
+                <h3>1.5 安装Python和数据分析工具</h3>
+                <p>要开始使用Python进行数据分析，你需要安装Python和相关的数据分析库。以下是安装步骤：</p>
+                <ol>
+                    <li>访问Python官方网站（https://www.python.org/）</li>
+                    <li>下载适合你操作系统的最新版本的Python安装包</li>
+                    <li>运行安装包，按照安装向导进行安装（注意勾选"Add Python to PATH"选项）</li>
+                    <li>安装完成后，打开命令行终端，输入以下命令来检查Python是否安装成功：</li>
+                </ol>
                 <div class="code-block">python --version</div>
-                <p>如果安装成功，你会看到Python的版本信息。</p>
+                <p>如果安装成功，你会看到Python的版本信息，例如：</p>
+                <div class="code-block">Python 3.11.0</div>
+                
+                <h3>1.6 安装数据分析库</h3>
+                <p>使用pip安装常用的数据分析库：</p>
+                <div class="code-block"># 安装数据分析核心库
+pip install pandas numpy matplotlib seaborn scikit-learn jupyter</div>
+                
+                <div class="note-box">
+                    <h4>推荐工具</h4>
+                    <p>Jupyter Notebook是数据分析的理想工具，它提供了交互式的编程环境，可以边写代码边查看结果。安装完成后，你可以通过以下命令启动Jupyter Notebook：</p>
+                    <div class="code-block">jupyter notebook</div>
+                </div>
             </div>
             
             <div class="nav-buttons">
-                <a href="../index.html" class="nav-button">返回课程目录</a>
+                <a href="../index.html" class="nav-button">返回首页</a>
                 <a href="basic-syntax.html" class="nav-button">下一章：Python基础语法</a>
             </div>
         </div>
+        
+        <footer>
+            <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
+        </footer>
     </div>
 </body>
 </html>

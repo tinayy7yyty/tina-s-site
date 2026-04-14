@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第2章：Python基础语法 - 商务数据分析与应用</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2196F3;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chapter-content {
+            line-height: 1.6;
+        }
+        .chapter-content h2 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .chapter-content h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .chapter-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .chapter-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .chapter-content li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box h4 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        .nav-buttons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #1976D2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python基础课程</h1>
+            <p>商务数据分析与应用专业学习路径</p>
+        </header>
+        
+        <nav>
+            <a href="../index.html">首页</a>
+            <a href="intro.html">课程介绍</a>
+            <a href="basic-syntax.html">基础语法</a>
+            <a href="control-flow.html">控制流</a>
+            <a href="data-structures.html">数据结构</a>
+            <a href="functions.html">函数</a>
+            <a href="data-analysis.html">数据分析</a>
+        </nav>
+        
+        <div class="content">
+            <div class="chapter-content">
+                <h2>第2章：Python基础语法</h2>
+                
+                <h3>2.1 变量</h3>
+                <p>变量是用来存储数据的容器。在Python中，变量的定义非常简单，不需要声明类型，直接赋值即可。</p>
+                <div class="code-block"># 定义变量
+name = "Tina"
+age = 18
+height = 1.65
+is_student = True
+
+# 打印变量
+print(name)
+print(age)
+print(height)
+print(is_student)</div>
+                <p>运行结果：</p>
+                <div class="code-block">Tina
+18
+1.65
+True</div>
+                
+                <div class="note-box">
+                    <h4>命名规则</h4>
+                    <ul>
+                        <li>变量名只能包含字母、数字和下划线</li>
+                        <li>变量名不能以数字开头</li>
+                        <li>变量名区分大小写</li>
+                        <li>变量名不能是Python关键字（如if、for、while等）</li>
+                    </ul>
+                </div>
+                
+                <h3>2.2 数据类型</h3>
+                <p>Python中常见的数据类型包括：</p>
+                <ul>
+                    <li><strong>整数（int）</strong>：如 1, 2, 3, -4</li>
+                    <li><strong>浮点数（float）</strong>：如 1.5, 2.0, -3.14</li>
+                    <li><strong>字符串（str）</strong>：如 "Hello", 'World'</li>
+                    <li><strong>布尔值（bool）</strong>：True, False</li>
+                    <li><strong>列表（list）</strong>：如 [1, 2, 3, "apple"]</li>
+                    <li><strong>元组（tuple）</strong>：如 (1, 2, 3, "apple")</li>
+                    <li><strong>字典（dict）</strong>：如 {"name": "Tina", "age": 18}</li>
+                </ul>
+                
+                <p>可以使用 <code>type()</code> 函数查看变量的数据类型：</p>
+                <div class="code-block"># 查看数据类型
+print(type(10))         # 整数
+print(type(3.14))       # 浮点数
+print(type("Hello"))    # 字符串
+print(type(True))       # 布尔值
+print(type([1, 2, 3]))  # 列表
+print(type((1, 2, 3)))  # 元组
+print(type({"name": "Tina"}))  # 字典</div>
+                
+                <h3>2.3 运算符</h3>
+                <p>Python支持多种运算符：</p>
+                
+                <h4>2.3.1 算术运算符</h4>
+                <div class="code-block"># 算术运算符
+print(10 + 3)    # 加法
+print(10 - 3)    # 减法
+print(10 * 3)    # 乘法
+print(10 / 3)    # 除法（结果为浮点数）
+print(10 // 3)   # 整除（结果为整数）
+print(10 % 3)    # 取模（余数）
+print(10 ** 3)   # 幂运算</div>
+                
+                <h4>2.3.2 比较运算符</h4>
+                <div class="code-block"># 比较运算符
+print(10 > 3)     # 大于
+print(10 < 3)     # 小于
+print(10 == 3)    # 等于
+print(10 != 3)    # 不等于
+print(10 >= 3)    # 大于等于
+print(10 <= 3)    # 小于等于</div>
+                
+                <h4>2.3.3 逻辑运算符</h4>
+                <div class="code-block"># 逻辑运算符
+print(True and False)  # 与
+print(True or False)   # 或
+print(not True)        # 非</div>
+                
+                <h3>2.4 字符串操作</h3>
+                <p>字符串是Python中常用的数据类型，支持多种操作：</p>
+                
+                <div class="code-block"># 字符串操作
+# 字符串拼接
+name = "Tina"
+greeting = "Hello, " + name
+print(greeting)
+
+# 字符串重复
+print("Hello" * 3)
+
+# 字符串索引
+text = "Python"
+print(text[0])  # 第一个字符
+print(text[-1]) # 最后一个字符
+
+# 字符串切片
+print(text[0:3])  # 从索引0到2的字符
+print(text[2:])   # 从索引2到末尾的字符
+print(text[:4])   # 从开头到索引3的字符
+
+# 字符串长度
+print(len(text))
+
+# 字符串方法
+print(text.upper())      # 转换为大写
+print(text.lower())      # 转换为小写
+print(text.strip())      # 去除首尾空格
+print(text.split(","))   # 按逗号分割</div>
+                
+                <h3>2.5 注释</h3>
+                <p>注释是代码中用于说明的文字，不会被执行。在Python中，使用 <code>#</code> 表示单行注释，使用三引号 <code>"""</code> 或 <code>'''</code> 表示多行注释。</p>
+                
+                <div class="code-block"># 这是单行注释
+
+"""
+这是
+多行注释
+"""
+
+name = "Tina"  # 变量定义</div>
+                
+                <div class="note-box">
+                    <h4>良好的注释习惯</h4>
+                    <p>编写清晰的注释可以提高代码的可读性和可维护性，特别是在复杂的代码中。建议在以下情况添加注释：</p>
+                    <ul>
+                        <li>解释代码的目的和逻辑</li>
+                        <li>标记重要的变量和常量</li>
+                        <li>说明复杂算法的实现思路</li>
+                        <li>提醒潜在的问题或注意事项</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="intro.html" class="nav-button">上一章：Python简介</a>
+                <a href="control-flow.html" class="nav-button">下一章：控制流</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
+        </footer>
+    </div>
+</body>
+</html>

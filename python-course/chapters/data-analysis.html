@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第6章：数据分析 - 商务数据分析与应用</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2196F3;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chapter-content {
+            line-height: 1.6;
+        }
+        .chapter-content h2 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .chapter-content h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .chapter-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .chapter-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .chapter-content li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box h4 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        .nav-buttons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #1976D2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python基础课程</h1>
+            <p>商务数据分析与应用专业学习路径</p>
+        </header>
+        
+        <nav>
+            <a href="../index.html">首页</a>
+            <a href="intro.html">课程介绍</a>
+            <a href="basic-syntax.html">基础语法</a>
+            <a href="control-flow.html">控制流</a>
+            <a href="data-structures.html">数据结构</a>
+            <a href="functions.html">函数</a>
+            <a href="data-analysis.html">数据分析</a>
+        </nav>
+        
+        <div class="content">
+            <div class="chapter-content">
+                <h2>第6章：数据分析基础</h2>
+                
+                <h3>6.1 Pandas 数据处理</h3>
+                <p>Pandas是Python中用于数据处理和分析的强大库，它提供了DataFrame和Series等数据结构，方便我们处理和分析结构化数据。</p>
+                
+                <div class="code-block"># 导入Pandas库
+import pandas as pd
+
+# 创建DataFrame
+data = {
+    '产品': ['产品A', '产品B', '产品C', '产品D'],
+    '销售额': [12000, 8000, 15000, 10000],
+    '地区': ['华东', '华南', '华东', '华南'],
+    '月份': ['2023-01', '2023-01', '2023-01', '2023-01']
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+# 查看数据基本信息
+print("\n数据基本信息:")
+print(df.info())
+
+# 查看数据统计描述
+print("\n数据统计描述:")
+print(df.describe())
+
+# 按地区分组统计销售额
+print("\n按地区分组统计销售额:")
+region_sales = df.groupby('地区')['销售额'].sum()
+print(region_sales)
+
+# 按产品分组统计销售额
+print("\n按产品分组统计销售额:")
+product_sales = df.groupby('产品')['销售额'].sum()
+print(product_sales)
+
+# 筛选销售额大于10000的记录
+print("\n销售额大于10000的记录:")
+high_sales = df[df['销售额'] > 10000]
+print(high_sales)
+
+# 排序
+print("\n按销售额降序排序:")
+sorted_df = df.sort_values('销售额', ascending=False)
+print(sorted_df)</div>
+                
+                <h3>6.2 数据清洗</h3>
+                <p>数据清洗是数据分析的重要步骤，包括处理缺失值、重复值、异常值等。</p>
+                
+                <div class="code-block"># 处理缺失值
+import pandas as pd
+import numpy as np
+
+# 创建包含缺失值的数据
+ data_with_na = {
+    '产品': ['产品A', '产品B', '产品C', '产品D'],
+    '销售额': [12000, np.nan, 15000, 10000],
+    '地区': ['华东', '华南', '华东', np.nan],
+    '月份': ['2023-01', '2023-01', np.nan, '2023-01']
+}
+
+df_na = pd.DataFrame(data_with_na)
+print("原始数据:")
+print(df_na)
+
+# 查看缺失值
+print("\n缺失值情况:")
+print(df_na.isnull().sum())
+
+# 填充缺失值
+df_filled = df_na.fillna({
+    '销售额': 0,
+    '地区': '未知',
+    '月份': '2023-01'
+})
+print("\n填充缺失值后:")
+print(df_filled)
+
+# 处理重复值
+data_with_duplicates = {
+    '产品': ['产品A', '产品B', '产品A', '产品C'],
+    '销售额': [12000, 8000, 12000, 15000]
+}
+
+df_duplicates = pd.DataFrame(data_with_duplicates)
+print("\n包含重复值的数据:")
+print(df_duplicates)
+
+# 去除重复值
+df_unique = df_duplicates.drop_duplicates()
+print("\n去除重复值后:")
+print(df_unique)</div>
+                
+                <h3>6.3 Matplotlib 数据可视化</h3>
+                <p>Matplotlib是Python中用于数据可视化的库，可以创建各种类型的图表，如折线图、柱状图、饼图等。</p>
+                
+                <div class="code-block"># 导入Matplotlib库
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# 创建数据
+data = {
+    '产品': ['产品A', '产品B', '产品C', '产品D'],
+    '销售额': [12000, 8000, 15000, 10000],
+    '地区': ['华东', '华南', '华东', '华南'],
+    '月份': ['2023-01', '2023-01', '2023-01', '2023-01']
+}
+
+df = pd.DataFrame(data)
+
+# 设置中文字体
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+
+# 柱状图
+plt.figure(figsize=(10, 6))
+plt.bar(df['产品'], df['销售额'])
+plt.title('各产品销售额')
+plt.xlabel('产品')
+plt.ylabel('销售额')
+plt.show()
+
+# 饼图
+plt.figure(figsize=(8, 8))
+plt.pie(df['销售额'], labels=df['产品'], autopct='%1.1f%%')
+plt.title('各产品销售额占比')
+plt.show()
+
+# 按地区分组统计
+region_sales = df.groupby('地区')['销售额'].sum()
+
+# 柱状图
+plt.figure(figsize=(10, 6))
+region_sales.plot(kind='bar')
+plt.title('各地区销售额')
+plt.xlabel('地区')
+plt.ylabel('销售额')
+plt.show()</div>
+                
+                <h3>6.4 商务数据分析综合示例</h3>
+                <p>下面是一个综合示例，展示如何使用Pandas和Matplotlib进行商务数据分析：</p>
+                
+                <div class="code-block"># 商务数据分析综合示例
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 创建销售数据
+sales_data = {
+    '月份': ['2023-01', '2023-02', '2023-03', '2023-04', '2023-05', '2023-06'],
+    '产品A': [12000, 13000, 15000, 14000, 16000, 18000],
+    '产品B': [8000, 9000, 10000, 11000, 12000, 13000],
+    '产品C': [15000, 16000, 17000, 18000, 19000, 20000],
+    '产品D': [10000, 11000, 12000, 13000, 14000, 15000]
+}
+
+df = pd.DataFrame(sales_data)
+print("销售数据:")
+print(df)
+
+# 计算每月总销售额
+df['总销售额'] = df[['产品A', '产品B', '产品C', '产品D']].sum(axis=1)
+print("\n添加总销售额后:")
+print(df)
+
+# 计算每个产品的总销售额
+product_totals = df[['产品A', '产品B', '产品C', '产品D']].sum()
+print("\n各产品总销售额:")
+print(product_totals)
+
+# 设置中文字体
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+# 绘制销售趋势图
+plt.figure(figsize=(12, 6))
+plt.plot(df['月份'], df['产品A'], label='产品A')
+plt.plot(df['月份'], df['产品B'], label='产品B')
+plt.plot(df['月份'], df['产品C'], label='产品C')
+plt.plot(df['月份'], df['产品D'], label='产品D')
+plt.plot(df['月份'], df['总销售额'], label='总销售额', linewidth=2)
+plt.title('销售趋势分析')
+plt.xlabel('月份')
+plt.ylabel('销售额')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# 绘制产品销售占比饼图
+plt.figure(figsize=(8, 8))
+plt.pie(product_totals, labels=product_totals.index, autopct='%1.1f%%')
+plt.title('产品销售占比')
+plt.show()
+
+# 分析销售增长率
+df['总销售额增长率'] = df['总销售额'].pct_change() * 100
+print("\n销售增长率:")
+print(df[['月份', '总销售额', '总销售额增长率']])
+
+# 绘制增长率图表
+plt.figure(figsize=(12, 6))
+plt.bar(df['月份'], df['总销售额增长率'])
+plt.title('销售增长率分析')
+plt.xlabel('月份')
+plt.ylabel('增长率 (%)')
+plt.grid(True, axis='y')
+plt.show()</div>
+                
+                <div class="note-box">
+                    <h4>数据分析工具安装</h4>
+                    <p>要使用Pandas和Matplotlib，需要先安装这些库：</p>
+                    <div class="code-block"># 安装数据分析库
+pip install pandas matplotlib numpy</div>
+                </div>
+                
+                <h3>6.5 数据分析最佳实践</h3>
+                <ul>
+                    <li><strong>数据清洗优先</strong>：在分析前，确保数据的质量和完整性</li>
+                    <li><strong>可视化辅助分析</strong>：使用图表直观展示数据趋势和关系</li>
+                    <li><strong>多角度分析</strong>：从不同维度分析数据，发现隐藏的模式</li>
+                    <li><strong>结合业务知识</strong>：将数据分析与业务需求相结合，提供有价值的见解</li>
+                    <li><strong>自动化分析流程</strong>：编写函数和脚本，自动化重复的分析任务</li>
+                </ul>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="functions.html" class="nav-button">上一章：函数</a>
+                <a href="../index.html" class="nav-button">返回首页</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
+        </footer>
+    </div>
+</body>
+</html>

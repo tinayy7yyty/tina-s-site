@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第5章：函数 - 商务数据分析与应用</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #2196F3;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chapter-content {
+            line-height: 1.6;
+        }
+        .chapter-content h2 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .chapter-content h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .chapter-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .chapter-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .chapter-content li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .note-box h4 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        .nav-buttons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #1976D2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python基础课程</h1>
+            <p>商务数据分析与应用专业学习路径</p>
+        </header>
+        
+        <nav>
+            <a href="../index.html">首页</a>
+            <a href="intro.html">课程介绍</a>
+            <a href="basic-syntax.html">基础语法</a>
+            <a href="control-flow.html">控制流</a>
+            <a href="data-structures.html">数据结构</a>
+            <a href="functions.html">函数</a>
+            <a href="data-analysis.html">数据分析</a>
+        </nav>
+        
+        <div class="content">
+            <div class="chapter-content">
+                <h2>第5章：函数</h2>
+                
+                <h3>5.1 函数的定义和调用</h3>
+                <p>函数是一段可重用的代码块，用于执行特定的任务。在Python中，使用 <code>def</code> 关键字定义函数。</p>
+                
+                <div class="code-block"># 定义函数
+def greet():
+    print("Hello, welcome to Python!")
+
+# 调用函数
+greet()
+
+# 带参数的函数
+def greet_name(name):
+    print(f"Hello, {name}!")
+
+# 调用带参数的函数
+greet_name("Tina")
+
+# 带返回值的函数
+def add(a, b):
+    return a + b
+
+# 调用带返回值的函数
+result = add(3, 5)
+print(result)</div>
+                
+                <h3>5.2 函数参数</h3>
+                <p>Python函数支持多种类型的参数：</p>
+                
+                <h4>5.2.1 位置参数</h4>
+                <div class="code-block">def calculate_area(length, width):
+    return length * width
+
+area = calculate_area(5, 3)
+print(area)</div>
+                
+                <h4>5.2.2 默认参数</h4>
+                <div class="code-block">def calculate_area(length, width=2):
+    return length * width
+
+# 使用默认参数
+area1 = calculate_area(5)  # width使用默认值2
+print(area1)
+
+# 覆盖默认参数
+area2 = calculate_area(5, 4)  # width使用值4
+print(area2)</div>
+                
+                <h4>5.2.3 关键字参数</h4>
+                <div class="code-block">def calculate_area(length, width):
+    return length * width
+
+# 使用关键字参数
+area = calculate_area(width=3, length=5)
+print(area)</div>
+                
+                <h4>5.2.4 可变参数</h4>
+                <div class="code-block"># 可变位置参数（*args）
+def sum_numbers(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+
+result = sum_numbers(1, 2, 3, 4, 5)
+print(result)
+
+# 可变关键字参数（**kwargs）
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Tina", age=18, major="商务数据分析与应用")</div>
+                
+                <h3>5.3 函数的返回值</h3>
+                <p>函数可以使用 <code>return</code> 语句返回一个或多个值：</p>
+                
+                <div class="code-block"># 返回单个值
+def calculate_area(length, width):
+    return length * width
+
+# 返回多个值
+def calculate_rectangle(length, width):
+    area = length * width
+    perimeter = 2 * (length + width)
+    return area, perimeter
+
+# 接收多个返回值
+area, perimeter = calculate_rectangle(5, 3)
+print(f"面积: {area}, 周长: {perimeter}")</div>
+                
+                <h3>5.4 局部变量和全局变量</h3>
+                <p>在函数内部定义的变量是局部变量，只在函数内部有效。在函数外部定义的变量是全局变量，可以在整个程序中使用。</p>
+                
+                <div class="code-block"># 全局变量
+global_var = "全局变量"
+
+def test_function():
+    # 局部变量
+    local_var = "局部变量"
+    print(local_var)
+    print(global_var)
+
+test_function()
+print(global_var)
+# print(local_var)  # 这会引发错误，因为local_var是局部变量</div>
+                
+                <div class="note-box">
+                    <h4>注意事项</h4>
+                    <p>如果需要在函数内部修改全局变量，需要使用 <code>global</code> 关键字声明：</p>
+                    <div class="code-block">global_var = 10
+
+def modify_global():
+    global global_var
+    global_var = 20
+
+print(global_var)  # 输出 10
+modify_global()
+print(global_var)  # 输出 20</div>
+                </div>
+                
+                <h3>5.5 商务数据分析中的应用示例</h3>
+                <p>下面是一个使用函数的实际应用示例，用于分析销售数据：</p>
+                
+                <div class="code-block"># 销售数据分析函数
+def calculate_total_sales(sales_data):
+    """计算总销售额"""
+    total = 0
+    for item in sales_data:
+        total += item["sales"]
+    return total
+
+def calculate_average_sales(sales_data):
+    """计算平均销售额"""
+    if not sales_data:
+        return 0
+    total = calculate_total_sales(sales_data)
+    return total / len(sales_data)
+
+def calculate_product_sales(sales_data, product):
+    """计算指定产品的销售额"""
+    total = 0
+    for item in sales_data:
+        if item["product"] == product:
+            total += item["sales"]
+    return total
+
+# 销售数据
+sales_data = [
+    {"product": "产品A", "sales": 12000},
+    {"product": "产品A", "sales": 8000},
+    {"product": "产品B", "sales": 15000},
+    {"product": "产品B", "sales": 10000}
+]
+
+# 使用函数分析数据
+total_sales = calculate_total_sales(sales_data)
+average_sales = calculate_average_sales(sales_data)
+product_a_sales = calculate_product_sales(sales_data, "产品A")
+product_b_sales = calculate_product_sales(sales_data, "产品B")
+
+print(f"总销售额: {total_sales}元")
+print(f"平均销售额: {average_sales:.2f}元")
+print(f"产品A销售额: {product_a_sales}元")
+print(f"产品B销售额: {product_b_sales}元")</div>
+                
+                <div class="note-box">
+                    <h4>函数设计建议</h4>
+                    <ul>
+                        <li>函数应该有清晰的功能和命名</li>
+                        <li>函数应该保持简洁，只做一件事情</li>
+                        <li>使用文档字符串（docstring）来描述函数的功能</li>
+                        <li>合理使用参数和返回值</li>
+                        <li>避免在函数内部修改全局变量</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="data-structures.html" class="nav-button">上一章：数据结构</a>
+                <a href="data-analysis.html" class="nav-button">下一章：数据分析</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
+        </footer>
+    </div>
+</body>
+</html>
