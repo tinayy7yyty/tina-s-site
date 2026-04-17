@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第6章：数据分析 - 商务数据分析与应用</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -125,6 +126,82 @@
         }
         footer p {
             margin: 0;
+        }
+        /* 代码运行组件样式 */
+        .code-runner {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .code-runner-header {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .code-runner-header h4 {
+            margin: 0;
+            color: #333;
+        }
+        .code-runner-controls {
+            display: flex;
+            gap: 10px;
+        }
+        .code-runner-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .run-button {
+            background-color: #2196F3;
+            color: white;
+        }
+        .run-button:hover {
+            background-color: #1976D2;
+        }
+        .reset-button {
+            background-color: #6c757d;
+            color: white;
+        }
+        .reset-button:hover {
+            background-color: #5a6268;
+        }
+        .code-runner-content {
+            padding: 15px;
+        }
+        .code-editor {
+            width: 100%;
+            min-height: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            background-color: #f8f9fa;
+        }
+        .output-area {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            min-height: 100px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+        .loading {
+            color: #6c757d;
+            font-style: italic;
         }
     </style>
 </head>
@@ -288,72 +365,80 @@ plt.ylabel('销售额')
 plt.show()</div>
                 
                 <h3>6.4 商务数据分析综合示例</h3>
-                <p>下面是一个综合示例，展示如何使用Pandas和Matplotlib进行商务数据分析：</p>
+                <p>下面是一个综合示例，展示如何使用Python进行基础的商务数据分析：</p>
                 
-                <div class="code-block"># 商务数据分析综合示例
-import pandas as pd
-import matplotlib.pyplot as plt
+                <div class="code-runner" id="code-runner-1">
+                    <div class="code-runner-header" onclick="toggleCodeRunner('code-runner-1')">
+                        <h4>代码运行器</h4>
+                        <div class="code-runner-controls">
+                            <button class="code-runner-button run-button" onclick="runCode('code-runner-1'); event.stopPropagation();">运行</button>
+                            <button class="code-runner-button reset-button" onclick="resetCode('code-runner-1', '# 商务数据分析综合示例（基础版）\n# 模拟Pandas的基本数据分析功能\n\n# 创建销售数据\nsales_data = [\n    {'月份': '2023-01', '产品A': 12000, '产品B': 8000, '产品C': 15000, '产品D': 10000},\n    {'月份': '2023-02', '产品A': 13000, '产品B': 9000, '产品C': 16000, '产品D': 11000},\n    {'月份': '2023-03', '产品A': 15000, '产品B': 10000, '产品C': 17000, '产品D': 12000},\n    {'月份': '2023-04', '产品A': 14000, '产品B': 11000, '产品C': 18000, '产品D': 13000},\n    {'月份': '2023-05', '产品A': 16000, '产品B': 12000, '产品C': 19000, '产品D': 14000},\n    {'月份': '2023-06', '产品A': 18000, '产品B': 13000, '产品C': 20000, '产品D': 15000}\n]\n\nprint(\"销售数据:\")\nprint(\"=\" * 80)\nprint(f\"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8}\")\nprint(\"-\" * 80)\nfor item in sales_data:\n    print(f\"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8}\")\n\n# 计算每月总销售额\nprint(\"\\n\\n添加总销售额后:\")\nprint(\"=\" * 100)\nprint(f\"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8} {'总销售额':>10}\")\nprint(\"-\" * 100)\nfor item in sales_data:\n    total = item['产品A'] + item['产品B'] + item['产品C'] + item['产品D']\n    item['总销售额'] = total\n    print(f\"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8} {total:>10}\")\n\n# 计算每个产品的总销售额\nprint(\"\\n\\n各产品总销售额:\")\nprint(\"=\" * 40)\nproduct_totals = {'产品A': 0, '产品B': 0, '产品C': 0, '产品D': 0}\nfor item in sales_data:\n    product_totals['产品A'] += item['产品A']\n    product_totals['产品B'] += item['产品B']\n    product_totals['产品C'] += item['产品C']\n    product_totals['产品D'] += item['产品D']\n\nfor product, total in product_totals.items():\n    print(f\"{product}: {total}元\")\n\n# 分析销售增长率\nprint(\"\\n\\n销售增长率分析:\")\nprint(\"=\" * 50)\nprint(f\"{'月份':<10} {'总销售额':>10} {'增长率':>12}\")\nprint(\"-\" * 50)\nprev_total = None\nfor item in sales_data:\n    if prev_total is not None and prev_total != 0:\n        growth_rate = ((item['总销售额'] - prev_total) / prev_total) * 100\n        print(f\"{item['月份']:<10} {item['总销售额']:>10} {growth_rate:>10.2f}%\")\n    else:\n        print(f\"{item['月份']:<10} {item['总销售额']:>10} {'N/A':>12}\")\n    prev_total = item['总销售额']\n\nprint(\"\\n\" + \"=\" * 50)\nprint(\"数据分析完成！\"); event.stopPropagation();">重置</button>
+                        </div>
+                    </div>
+                    <div class="code-runner-content">
+                        <textarea class="code-editor"># 商务数据分析综合示例（基础版）
+# 模拟Pandas的基本数据分析功能
 
 # 创建销售数据
-sales_data = {
-    '月份': ['2023-01', '2023-02', '2023-03', '2023-04', '2023-05', '2023-06'],
-    '产品A': [12000, 13000, 15000, 14000, 16000, 18000],
-    '产品B': [8000, 9000, 10000, 11000, 12000, 13000],
-    '产品C': [15000, 16000, 17000, 18000, 19000, 20000],
-    '产品D': [10000, 11000, 12000, 13000, 14000, 15000]
-}
+sales_data = [
+    {'月份': '2023-01', '产品A': 12000, '产品B': 8000, '产品C': 15000, '产品D': 10000},
+    {'月份': '2023-02', '产品A': 13000, '产品B': 9000, '产品C': 16000, '产品D': 11000},
+    {'月份': '2023-03', '产品A': 15000, '产品B': 10000, '产品C': 17000, '产品D': 12000},
+    {'月份': '2023-04', '产品A': 14000, '产品B': 11000, '产品C': 18000, '产品D': 13000},
+    {'月份': '2023-05', '产品A': 16000, '产品B': 12000, '产品C': 19000, '产品D': 14000},
+    {'月份': '2023-06', '产品A': 18000, '产品B': 13000, '产品C': 20000, '产品D': 15000}
+]
 
-df = pd.DataFrame(sales_data)
 print("销售数据:")
-print(df)
+print("=" * 80)
+print(f"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8}")
+print("-" * 80)
+for item in sales_data:
+    print(f"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8}")
 
 # 计算每月总销售额
-df['总销售额'] = df[['产品A', '产品B', '产品C', '产品D']].sum(axis=1)
-print("\n添加总销售额后:")
-print(df)
+print("\n\n添加总销售额后:")
+print("=" * 100)
+print(f"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8} {'总销售额':>10}")
+print("-" * 100)
+for item in sales_data:
+    total = item['产品A'] + item['产品B'] + item['产品C'] + item['产品D']
+    item['总销售额'] = total
+    print(f"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8} {total:>10}")
 
 # 计算每个产品的总销售额
-product_totals = df[['产品A', '产品B', '产品C', '产品D']].sum()
-print("\n各产品总销售额:")
-print(product_totals)
+print("\n\n各产品总销售额:")
+print("=" * 40)
+product_totals = {'产品A': 0, '产品B': 0, '产品C': 0, '产品D': 0}
+for item in sales_data:
+    product_totals['产品A'] += item['产品A']
+    product_totals['产品B'] += item['产品B']
+    product_totals['产品C'] += item['产品C']
+    product_totals['产品D'] += item['产品D']
 
-# 设置中文字体
-plt.rcParams['font.sans-serif'] = ['SimHei']
-plt.rcParams['axes.unicode_minus'] = False
-
-# 绘制销售趋势图
-plt.figure(figsize=(12, 6))
-plt.plot(df['月份'], df['产品A'], label='产品A')
-plt.plot(df['月份'], df['产品B'], label='产品B')
-plt.plot(df['月份'], df['产品C'], label='产品C')
-plt.plot(df['月份'], df['产品D'], label='产品D')
-plt.plot(df['月份'], df['总销售额'], label='总销售额', linewidth=2)
-plt.title('销售趋势分析')
-plt.xlabel('月份')
-plt.ylabel('销售额')
-plt.legend()
-plt.grid(True)
-plt.show()
-
-# 绘制产品销售占比饼图
-plt.figure(figsize=(8, 8))
-plt.pie(product_totals, labels=product_totals.index, autopct='%1.1f%%')
-plt.title('产品销售占比')
-plt.show()
+for product, total in product_totals.items():
+    print(f"{product}: {total}元")
 
 # 分析销售增长率
-df['总销售额增长率'] = df['总销售额'].pct_change() * 100
-print("\n销售增长率:")
-print(df[['月份', '总销售额', '总销售额增长率']])
+print("\n\n销售增长率分析:")
+print("=" * 50)
+print(f"{'月份':<10} {'总销售额':>10} {'增长率':>12}")
+print("-" * 50)
+prev_total = None
+for item in sales_data:
+    if prev_total is not None and prev_total != 0:
+        growth_rate = ((item['总销售额'] - prev_total) / prev_total) * 100
+        print(f"{item['月份']:<10} {item['总销售额']:>10} {growth_rate:>10.2f}%")
+    else:
+        print(f"{item['月份']:<10} {item['总销售额']:>10} {'N/A':>12}")
+    prev_total = item['总销售额']
 
-# 绘制增长率图表
-plt.figure(figsize=(12, 6))
-plt.bar(df['月份'], df['总销售额增长率'])
-plt.title('销售增长率分析')
-plt.xlabel('月份')
-plt.ylabel('增长率 (%)')
-plt.grid(True, axis='y')
-plt.show()</div>
+print("\n" + "=" * 50)
+print("数据分析完成！")
+</textarea>
+                        <div class="output-area"></div>
+                    </div>
+                </div>
                 
                 <div class="note-box">
                     <h4>数据分析工具安装</h4>
@@ -382,5 +467,77 @@ pip install pandas matplotlib numpy</div>
             <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
         </footer>
     </div>
+
+    <script>
+        // 全局Pyodide实例
+        let pyodide;
+        
+        // 初始化Pyodide
+        async function initPyodide() {
+            try {
+                pyodide = await loadPyodide({
+                    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+                });
+                console.log("Pyodide 初始化成功");
+            } catch (error) {
+                console.error("Pyodide 初始化失败:", error);
+                alert("Python 环境加载失败，请刷新页面重试");
+            }
+        }
+        
+        // 运行代码
+        async function runCode(codeRunnerId) {
+            const codeEditor = document.querySelector(`#${codeRunnerId} .code-editor`);
+            const outputArea = document.querySelector(`#${codeRunnerId} .output-area`);
+            
+            if (!pyodide) {
+                outputArea.textContent = "Python 环境正在加载，请稍候...";
+                await initPyodide();
+            }
+            
+            try {
+                outputArea.textContent = "运行中...";
+                
+                // 重定向标准输出
+                let output = "";
+                pyodide.setStdout({ write: (text) => { output += text; } });
+                pyodide.setStderr({ write: (text) => { output += text; } });
+                
+                // 运行代码
+                await pyodide.runPythonAsync(codeEditor.value);
+                
+                // 显示输出
+                outputArea.textContent = output || "执行完成，无输出";
+            } catch (error) {
+                outputArea.textContent = `错误: ${error.message}`;
+                console.error("代码运行错误:", error);
+            }
+        }
+        
+        // 重置代码
+        function resetCode(codeRunnerId, defaultCode) {
+            const codeEditor = document.querySelector(`#${codeRunnerId} .code-editor`);
+            const outputArea = document.querySelector(`#${codeRunnerId} .output-area`);
+            
+            codeEditor.value = defaultCode;
+            outputArea.textContent = "";
+        }
+        
+        // 切换代码运行器的折叠状态
+        function toggleCodeRunner(codeRunnerId) {
+            const content = document.querySelector(`#${codeRunnerId} .code-runner-content`);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+        
+        // 页面加载时初始化
+        window.addEventListener("load", function() {
+            // 延迟初始化Pyodide，避免阻塞页面加载
+            setTimeout(initPyodide, 1000);
+        });
+    </script>
 </body>
 </html>

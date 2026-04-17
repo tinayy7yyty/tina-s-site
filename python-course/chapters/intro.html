@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第1章：Python简介 - 商务数据分析与应用</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -137,6 +138,82 @@
         footer p {
             margin: 0;
         }
+        /* 代码运行组件样式 */
+        .code-runner {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .code-runner-header {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .code-runner-header h4 {
+            margin: 0;
+            color: #333;
+        }
+        .code-runner-controls {
+            display: flex;
+            gap: 10px;
+        }
+        .code-runner-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .run-button {
+            background-color: #2196F3;
+            color: white;
+        }
+        .run-button:hover {
+            background-color: #1976D2;
+        }
+        .reset-button {
+            background-color: #6c757d;
+            color: white;
+        }
+        .reset-button:hover {
+            background-color: #5a6268;
+        }
+        .code-runner-content {
+            padding: 15px;
+        }
+        .code-editor {
+            width: 100%;
+            min-height: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            background-color: #f8f9fa;
+        }
+        .output-area {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            min-height: 100px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+        .loading {
+            color: #6c757d;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -194,9 +271,19 @@
                 
                 <h3>1.4 第一个Python程序</h3>
                 <p>让我们编写第一个Python程序，输出"Hello, World!"：</p>
-                <div class="code-block">print("Hello, World!")</div>
-                <p>运行这个程序，你会看到输出：</p>
-                <div class="code-block">Hello, World!</div>
+                <div class="code-runner" id="code-runner-1">
+                    <div class="code-runner-header" onclick="toggleCodeRunner('code-runner-1')">
+                        <h4>代码运行器</h4>
+                        <div class="code-runner-controls">
+                            <button class="code-runner-button run-button" onclick="runCode('code-runner-1'); event.stopPropagation();">运行</button>
+                            <button class="code-runner-button reset-button" onclick="resetCode('code-runner-1', 'print(\"Hello, World!\")'); event.stopPropagation();">重置</button>
+                        </div>
+                    </div>
+                    <div class="code-runner-content">
+                        <textarea class="code-editor">print("Hello, World!")</textarea>
+                        <div class="output-area"></div>
+                    </div>
+                </div>
                 
                 <div class="note-box">
                     <h4>编程小贴士</h4>
@@ -237,5 +324,77 @@ pip install pandas numpy matplotlib seaborn scikit-learn jupyter</div>
             <p>&copy; 2026 Python基础课程 - 商务数据分析与应用专业</p>
         </footer>
     </div>
+
+    <script>
+        // 全局Pyodide实例
+        let pyodide;
+        
+        // 初始化Pyodide
+        async function initPyodide() {
+            try {
+                pyodide = await loadPyodide({
+                    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+                });
+                console.log("Pyodide 初始化成功");
+            } catch (error) {
+                console.error("Pyodide 初始化失败:", error);
+                alert("Python 环境加载失败，请刷新页面重试");
+            }
+        }
+        
+        // 运行代码
+        async function runCode(codeRunnerId) {
+            const codeEditor = document.querySelector(`#${codeRunnerId} .code-editor`);
+            const outputArea = document.querySelector(`#${codeRunnerId} .output-area`);
+            
+            if (!pyodide) {
+                outputArea.textContent = "Python 环境正在加载，请稍候...";
+                await initPyodide();
+            }
+            
+            try {
+                outputArea.textContent = "运行中...";
+                
+                // 重定向标准输出
+                let output = "";
+                pyodide.setStdout({ write: (text) => { output += text; } });
+                pyodide.setStderr({ write: (text) => { output += text; } });
+                
+                // 运行代码
+                await pyodide.runPythonAsync(codeEditor.value);
+                
+                // 显示输出
+                outputArea.textContent = output || "执行完成，无输出";
+            } catch (error) {
+                outputArea.textContent = `错误: ${error.message}`;
+                console.error("代码运行错误:", error);
+            }
+        }
+        
+        // 重置代码
+        function resetCode(codeRunnerId, defaultCode) {
+            const codeEditor = document.querySelector(`#${codeRunnerId} .code-editor`);
+            const outputArea = document.querySelector(`#${codeRunnerId} .output-area`);
+            
+            codeEditor.value = defaultCode;
+            outputArea.textContent = "";
+        }
+        
+        // 切换代码运行器的折叠状态
+        function toggleCodeRunner(codeRunnerId) {
+            const content = document.querySelector(`#${codeRunnerId} .code-runner-content`);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+        
+        // 页面加载时初始化
+        window.addEventListener("load", function() {
+            // 延迟初始化Pyodide，避免阻塞页面加载
+            setTimeout(initPyodide, 1000);
+        });
+    </script>
 </body>
 </html>
