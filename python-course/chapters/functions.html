@@ -354,11 +354,11 @@ print(global_var)  # 输出 20</div>
                         <h4>代码运行器</h4>
                         <div class="code-runner-controls">
                             <button class="code-runner-button run-button" onclick="runCode('code-runner-1'); event.stopPropagation();">运行</button>
-                            <button class="code-runner-button reset-button" onclick="resetCode('code-runner-1', '# 销售数据分析函数\ndef calculate_total_sales(sales_data):\n    \"\"\"计算总销售额\"\"\"\n    total = 0\n    for item in sales_data:\n        total += item[\"sales\"]\n    return total\n\ndef calculate_average_sales(sales_data):\n    \"\"\"计算平均销售额\"\"\"\n    if not sales_data:\n        return 0\n    total = calculate_total_sales(sales_data)\n    return total / len(sales_data)\n\ndef calculate_product_sales(sales_data, product):\n    \"\"\"计算指定产品的销售额\"\"\"\n    total = 0\n    for item in sales_data:\n        if item[\"product\"] == product:\n            total += item[\"sales\"]\n    return total\n\n# 销售数据\nsales_data = [\n    {\"product\": \"产品A\", \"sales\": 12000},\n    {\"product\": \"产品A\", \"sales\": 8000},\n    {\"product\": \"产品B\", \"sales\": 15000},\n    {\"product\": \"产品B\", \"sales\": 10000}\n]\n\n# 使用函数分析数据\ntotal_sales = calculate_total_sales(sales_data)\naverage_sales = calculate_average_sales(sales_data)\nproduct_a_sales = calculate_product_sales(sales_data, \"产品A\")\nproduct_b_sales = calculate_product_sales(sales_data, \"产品B\")\n\nprint(f\"总销售额: {total_sales}元\")\nprint(f\"平均销售额: {average_sales:.2f}元\")\nprint(f\"产品A销售额: {product_a_sales}元\")\nprint(f\"产品B销售额: {product_b_sales}元\"); event.stopPropagation();">重置</button>
+                            <button class="code-runner-button reset-button" onclick="resetFunctionCode(); event.stopPropagation();">重置</button>
                         </div>
                     </div>
                     <div class="code-runner-content">
-                        <textarea class="code-editor"># 销售数据分析函数
+                        <textarea class="code-editor" id="function-code"># 销售数据分析函数
 def calculate_total_sales(sales_data):
     """计算总销售额"""
     total = 0
@@ -497,6 +497,57 @@ print(f"产品B销售额: {product_b_sales}元")
             // 延迟初始化Pyodide，避免阻塞页面加载
             setTimeout(initPyodide, 1000);
         });
+        
+        // 重置函数代码
+        function resetFunctionCode() {
+            const defaultCode = `# 销售数据分析函数
+def calculate_total_sales(sales_data):
+    """计算总销售额"""
+    total = 0
+    for item in sales_data:
+        total += item["sales"]
+    return total
+
+def calculate_average_sales(sales_data):
+    """计算平均销售额"""
+    if not sales_data:
+        return 0
+    total = calculate_total_sales(sales_data)
+    return total / len(sales_data)
+
+def calculate_product_sales(sales_data, product):
+    """计算指定产品的销售额"""
+    total = 0
+    for item in sales_data:
+        if item["product"] == product:
+            total += item["sales"]
+    return total
+
+# 销售数据
+sales_data = [
+    {"product": "产品A", "sales": 12000},
+    {"product": "产品A", "sales": 8000},
+    {"product": "产品B", "sales": 15000},
+    {"product": "产品B", "sales": 10000}
+]
+
+# 使用函数分析数据
+total_sales = calculate_total_sales(sales_data)
+average_sales = calculate_average_sales(sales_data)
+product_a_sales = calculate_product_sales(sales_data, "产品A")
+product_b_sales = calculate_product_sales(sales_data, "产品B")
+
+print(f"总销售额: {total_sales}元")
+print(f"平均销售额: {average_sales:.2f}元")
+print(f"产品A销售额: {product_a_sales}元")
+print(f"产品B销售额: {product_b_sales}元")`;
+    
+    const codeEditor = document.getElementById("function-code");
+    const outputArea = document.querySelector("#code-runner-1 .output-area");
+    
+    codeEditor.value = defaultCode;
+    outputArea.textContent = "";
+}
     </script>
 </body>
 </html>

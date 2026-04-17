@@ -372,11 +372,11 @@ plt.show()</div>
                         <h4>代码运行器</h4>
                         <div class="code-runner-controls">
                             <button class="code-runner-button run-button" onclick="runCode('code-runner-1'); event.stopPropagation();">运行</button>
-                            <button class="code-runner-button reset-button" onclick="resetCode('code-runner-1', '# 商务数据分析综合示例（基础版）\n# 模拟Pandas的基本数据分析功能\n\n# 创建销售数据\nsales_data = [\n    {'月份': '2023-01', '产品A': 12000, '产品B': 8000, '产品C': 15000, '产品D': 10000},\n    {'月份': '2023-02', '产品A': 13000, '产品B': 9000, '产品C': 16000, '产品D': 11000},\n    {'月份': '2023-03', '产品A': 15000, '产品B': 10000, '产品C': 17000, '产品D': 12000},\n    {'月份': '2023-04', '产品A': 14000, '产品B': 11000, '产品C': 18000, '产品D': 13000},\n    {'月份': '2023-05', '产品A': 16000, '产品B': 12000, '产品C': 19000, '产品D': 14000},\n    {'月份': '2023-06', '产品A': 18000, '产品B': 13000, '产品C': 20000, '产品D': 15000}\n]\n\nprint(\"销售数据:\")\nprint(\"=\" * 80)\nprint(f\"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8}\")\nprint(\"-\" * 80)\nfor item in sales_data:\n    print(f\"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8}\")\n\n# 计算每月总销售额\nprint(\"\\n\\n添加总销售额后:\")\nprint(\"=\" * 100)\nprint(f\"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8} {'总销售额':>10}\")\nprint(\"-\" * 100)\nfor item in sales_data:\n    total = item['产品A'] + item['产品B'] + item['产品C'] + item['产品D']\n    item['总销售额'] = total\n    print(f\"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8} {total:>10}\")\n\n# 计算每个产品的总销售额\nprint(\"\\n\\n各产品总销售额:\")\nprint(\"=\" * 40)\nproduct_totals = {'产品A': 0, '产品B': 0, '产品C': 0, '产品D': 0}\nfor item in sales_data:\n    product_totals['产品A'] += item['产品A']\n    product_totals['产品B'] += item['产品B']\n    product_totals['产品C'] += item['产品C']\n    product_totals['产品D'] += item['产品D']\n\nfor product, total in product_totals.items():\n    print(f\"{product}: {total}元\")\n\n# 分析销售增长率\nprint(\"\\n\\n销售增长率分析:\")\nprint(\"=\" * 50)\nprint(f\"{'月份':<10} {'总销售额':>10} {'增长率':>12}\")\nprint(\"-\" * 50)\nprev_total = None\nfor item in sales_data:\n    if prev_total is not None and prev_total != 0:\n        growth_rate = ((item['总销售额'] - prev_total) / prev_total) * 100\n        print(f\"{item['月份']:<10} {item['总销售额']:>10} {growth_rate:>10.2f}%\")\n    else:\n        print(f\"{item['月份']:<10} {item['总销售额']:>10} {'N/A':>12}\")\n    prev_total = item['总销售额']\n\nprint(\"\\n\" + \"=\" * 50)\nprint(\"数据分析完成！\"); event.stopPropagation();">重置</button>
+                            <button class="code-runner-button reset-button" onclick="resetAnalysisCode(); event.stopPropagation();">重置</button>
                         </div>
                     </div>
                     <div class="code-runner-content">
-                        <textarea class="code-editor"># 商务数据分析综合示例（基础版）
+                        <textarea class="code-editor" id="analysis-code"># 商务数据分析综合示例（基础版）
 # 模拟Pandas的基本数据分析功能
 
 # 创建销售数据
@@ -538,6 +538,75 @@ pip install pandas matplotlib numpy</div>
             // 延迟初始化Pyodide，避免阻塞页面加载
             setTimeout(initPyodide, 1000);
         });
+        
+        // 重置分析代码
+        function resetAnalysisCode() {
+            const defaultCode = `# 商务数据分析综合示例（基础版）
+# 模拟Pandas的基本数据分析功能
+
+# 创建销售数据
+sales_data = [
+    {'月份': '2023-01', '产品A': 12000, '产品B': 8000, '产品C': 15000, '产品D': 10000},
+    {'月份': '2023-02', '产品A': 13000, '产品B': 9000, '产品C': 16000, '产品D': 11000},
+    {'月份': '2023-03', '产品A': 15000, '产品B': 10000, '产品C': 17000, '产品D': 12000},
+    {'月份': '2023-04', '产品A': 14000, '产品B': 11000, '产品C': 18000, '产品D': 13000},
+    {'月份': '2023-05', '产品A': 16000, '产品B': 12000, '产品C': 19000, '产品D': 14000},
+    {'月份': '2023-06', '产品A': 18000, '产品B': 13000, '产品C': 20000, '产品D': 15000}
+]
+
+print("销售数据:")
+print("=" * 80)
+print(f"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8}")
+print("-" * 80)
+for item in sales_data:
+    print(f"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8}")
+
+# 计算每月总销售额
+print("\n\n添加总销售额后:")
+print("=" * 100)
+print(f"{'月份':<10} {'产品A':>8} {'产品B':>8} {'产品C':>8} {'产品D':>8} {'总销售额':>10}")
+print("-" * 100)
+for item in sales_data:
+    total = item['产品A'] + item['产品B'] + item['产品C'] + item['产品D']
+    item['总销售额'] = total
+    print(f"{item['月份']:<10} {item['产品A']:>8} {item['产品B']:>8} {item['产品C']:>8} {item['产品D']:>8} {total:>10}")
+
+# 计算每个产品的总销售额
+print("\n\n各产品总销售额:")
+print("=" * 40)
+product_totals = {'产品A': 0, '产品B': 0, '产品C': 0, '产品D': 0}
+for item in sales_data:
+    product_totals['产品A'] += item['产品A']
+    product_totals['产品B'] += item['产品B']
+    product_totals['产品C'] += item['产品C']
+    product_totals['产品D'] += item['产品D']
+
+for product, total in product_totals.items():
+    print(f"{product}: {total}元")
+
+# 分析销售增长率
+print("\n\n销售增长率分析:")
+print("=" * 50)
+print(f"{'月份':<10} {'总销售额':>10} {'增长率':>12}")
+print("-" * 50)
+prev_total = None
+for item in sales_data:
+    if prev_total is not None and prev_total != 0:
+        growth_rate = ((item['总销售额'] - prev_total) / prev_total) * 100
+        print(f"{item['月份']:<10} {item['总销售额']:>10} {growth_rate:>10.2f}%")
+    else:
+        print(f"{item['月份']:<10} {item['总销售额']:>10} {'N/A':>12}")
+    prev_total = item['总销售额']
+
+print("\n" + "=" * 50)
+print("数据分析完成！")`;
+    
+    const codeEditor = document.getElementById("analysis-code");
+    const outputArea = document.querySelector("#code-runner-1 .output-area");
+    
+    codeEditor.value = defaultCode;
+    outputArea.textContent = "";
+}
     </script>
 </body>
 </html>
